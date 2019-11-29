@@ -1,0 +1,28 @@
+{
+  "name": "taffa",
+  "version": "1.0.0",
+  "description": "NPM package for using Täffä's (Dagsen's) API.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "author": "Filip Stenbacka",
+  "license": "ISC",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.teknologforeningen.fi:stenbaf2/npm-taffa.git"
+  },
+  "homepage": "https://gitlab.teknologforeningen.fi:stenbaf2/npm-taffa#README",
+  "bugs": {
+    "url": "https://gitlab.teknologforeningen.fi:stenbaf2/npm-taffa/issues"
+  }
+}
