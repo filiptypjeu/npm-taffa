@@ -24,40 +24,39 @@ const expectMenu = expect.objectContaining({
 test('menu', async () => {
   for (let i of [undefined, -1, 0, 1, 2, 3, 4, 5]) {
     expect(await menu(i)).toEqual(expectMenu);
-    expect(await menu(i, "sv")).toEqual(expectMenu);
-    expect(await menu(i, "fi")).toEqual(expectMenu);
-    expect(await menu(i, "en")).toEqual(expectMenu);
+    expect(await menu(i, 'sv')).toEqual(expectMenu);
+    expect(await menu(i, 'fi')).toEqual(expectMenu);
+    expect(await menu(i, 'en')).toEqual(expectMenu);
   }
 });
 
 test('menu date', async () => {
   expect(await menu(new Date())).toEqual(expectMenu);
-  expect(await menu(new Date(), "sv")).toEqual(expectMenu);
-  expect(await menu(new Date(), "fi")).toEqual(expectMenu);
-  expect(await menu(new Date(), "en")).toEqual(expectMenu);
+  expect(await menu(new Date(), 'sv')).toEqual(expectMenu);
+  expect(await menu(new Date(), 'fi')).toEqual(expectMenu);
+  expect(await menu(new Date(), 'en')).toEqual(expectMenu);
 });
 
 test('menu 5', async () => {
   expect(modMenu(await menu(5))).toEqual(modMenu(await menu(4)));
-  expect(modMenu(await menu(5, "sv"))).toEqual(modMenu(await menu(4, "sv")));
-  expect(modMenu(await menu(5, "fi"))).toEqual(modMenu(await menu(4, "fi")));
-  expect(modMenu(await menu(5, "en"))).toEqual(modMenu(await menu(4, "en")));
+  expect(modMenu(await menu(5, 'sv'))).toEqual(modMenu(await menu(4, 'sv')));
+  expect(modMenu(await menu(5, 'fi'))).toEqual(modMenu(await menu(4, 'fi')));
+  expect(modMenu(await menu(5, 'en'))).toEqual(modMenu(await menu(4, 'en')));
 });
 
 test('menu -1', async () => {
   expect(modMenu(await menu(-1))).toEqual(modMenu(await menu()));
-  expect(modMenu(await menu(-1, "sv"))).toEqual(modMenu(await menu(undefined, "sv")));
-  expect(modMenu(await menu(-1, "fi"))).toEqual(modMenu(await menu(undefined, "fi")));
-  expect(modMenu(await menu(-1, "en"))).toEqual(modMenu(await menu(undefined, "en")));
+  expect(modMenu(await menu(-1, 'sv'))).toEqual(modMenu(await menu(undefined, 'sv')));
+  expect(modMenu(await menu(-1, 'fi'))).toEqual(modMenu(await menu(undefined, 'fi')));
+  expect(modMenu(await menu(-1, 'en'))).toEqual(modMenu(await menu(undefined, 'en')));
 });
 
 test('menu 0', async () => {
   expect(modMenu(await menu(0))).toEqual(modMenu(await menu()));
-  expect(modMenu(await menu(0, "sv"))).toEqual(modMenu(await menu(undefined, "sv")));
-  expect(modMenu(await menu(0, "fi"))).toEqual(modMenu(await menu(undefined, "fi")));
-  expect(modMenu(await menu(0, "en"))).toEqual(modMenu(await menu(undefined, "en")));
+  expect(modMenu(await menu(0, 'sv'))).toEqual(modMenu(await menu(undefined, 'sv')));
+  expect(modMenu(await menu(0, 'fi'))).toEqual(modMenu(await menu(undefined, 'fi')));
+  expect(modMenu(await menu(0, 'en'))).toEqual(modMenu(await menu(undefined, 'en')));
 });
-
 
 test('week', async () => {
   const a = await week();
@@ -66,19 +65,19 @@ test('week', async () => {
 });
 
 test('week sv', async () => {
-  const a = await week("sv");
+  const a = await week('sv');
   expect(a).toHaveLength(5);
   expect(a[0]).toEqual(expectMenu);
 });
 
 test('week fi', async () => {
-  const a = await week("fi");
+  const a = await week('fi');
   expect(a).toHaveLength(5);
   expect(a[0]).toEqual(expectMenu);
 });
 
 test('week en', async () => {
-  const a = await week("en");
+  const a = await week('en');
   expect(a).toHaveLength(5);
   expect(a[0]).toEqual(expectMenu);
 });
