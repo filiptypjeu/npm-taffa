@@ -1,9 +1,9 @@
 import rp = require('request-promise');
 
 export enum TaffaLanguageEnum {
-  swedish = 'sv',
-  finnish = 'fi',
-  english = 'en',
+  "sv",
+  "fi",
+  "en",
 }
 
 export interface ITaffaMenu {
@@ -21,7 +21,7 @@ let taffaBaseURL: string = 'http://api.tf.fi/taffa/';
 
 export const setTaffaURL = (url: string) => taffaBaseURL = url;
 
-export const menu = async (date?: Date | number, language?: TaffaLanguageEnum): Promise<ITaffaMenu> => {
+export const menu = async (date?: Date | number, language?: keyof typeof TaffaLanguageEnum): Promise<ITaffaMenu> => {
   let day = '0';
 
   if (typeof date === 'number') {
@@ -30,7 +30,7 @@ export const menu = async (date?: Date | number, language?: TaffaLanguageEnum): 
     day = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
   }
 
-  return rp(`${taffaBaseURL}/${language ? language : TaffaLanguageEnum.swedish}/json/${day}/`)
+  return rp(`${taffaBaseURL}/${language ? language : "sv"}/json/${day}/`)
     .then((body: string) => {
       const m: ITaffaMenu = JSON.parse(body);
       return m;
@@ -40,8 +40,8 @@ export const menu = async (date?: Date | number, language?: TaffaLanguageEnum): 
     });
 };
 
-export const week = async (language?: TaffaLanguageEnum): Promise<ITaffaMenu[]> => {
-  return rp(`${taffaBaseURL}/${language ? language : TaffaLanguageEnum.swedish}/json/week/`)
+export const week = async (language?: keyof typeof TaffaLanguageEnum): Promise<ITaffaMenu[]> => {
+  return rp(`${taffaBaseURL}/${language ? language : "sv"}/json/week/`)
     .then((body: string) => {
       const a: ITaffaMenu[] = JSON.parse(body);
       return a;
