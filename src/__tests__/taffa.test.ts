@@ -1,4 +1,4 @@
-import { menu, week, setTaffaURL, ITaffaMenu } from '../index';
+import { menu, week, ITaffaMenu } from '../index';
 
 const modMenu = (m: ITaffaMenu): ITaffaMenu => {
   m.main = m.main.split('(')[0].trim();
