@@ -1,4 +1,4 @@
-# npm-taffa
+# taffa
 With this package you can easily request the menu for Teknologföreningen's restaurant Dagsen, or as it's more commonly know as, Täffä.
 
 ## Usage
