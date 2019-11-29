@@ -29,12 +29,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.teknologforeningen.fi:stenbaf2/npm-taffa.git"
+    "url": "git@github.com:filiptypjeu/npm-taffa.git"
   },
-  "homepage": "https://gitlab.teknologforeningen.fi/stenbaf2/npm-taffa#README",
-  "bugs": {
-    "url": "https://gitlab.teknologforeningen.fi/stenbaf2/npm-taffa/issues"
-  },
+  "homepage": "https://github.com/filiptypjeu/npm-taffa",
   "dependencies": {
     "request-promise": "^4.2.5"
   },
@@ -43,6 +40,7 @@
   ],
   "keywords": [
     "täffä",
+    "taffa",
     "teknologföreningen",
     "TF"
   ]
