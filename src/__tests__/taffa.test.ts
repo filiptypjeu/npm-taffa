@@ -82,9 +82,3 @@ test('week en', async () => {
   expect(a).toHaveLength(5);
   expect(a[0]).toEqual(expectMenu);
 });
-
-
-
-test("setTaffaURL", async () => {
-  expect(setTaffaURL("Whatever")).toEqual("Whatever");
-});

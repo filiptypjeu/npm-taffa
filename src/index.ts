@@ -17,9 +17,7 @@ export interface ITaffaMenu {
   alacarte: string;
 }
 
-let taffaBaseURL: string = 'http://api.tf.fi/taffa/';
-
-export const setTaffaURL = (url: string) => taffaBaseURL = url;
+const taffaBaseURL: string = 'http://api.tf.fi/taffa/';
 
 export const menu = async (date?: Date | number, language?: keyof typeof TaffaLanguageEnum): Promise<ITaffaMenu> => {
   let day = '0';
