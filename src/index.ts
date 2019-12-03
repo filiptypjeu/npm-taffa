@@ -9,6 +9,7 @@ export enum TaffaLanguageEnum {
 export interface ITaffaMenu {
   date: string;
   dayname: string;
+  day: number;
   main: string;
   soup: string;
   salad: string;
