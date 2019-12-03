@@ -31,10 +31,12 @@ const taffaBaseURL: string = 'http://api.tf.fi/taffa';
 export const menu = async (date?: Date | number, language?: keyof typeof TaffaLanguageEnum): Promise<ITaffaMenu> => {
   let day = '0';
 
-  if (typeof date === 'number') {
-    day = Math.min(Math.max(date, 0), 4).toString();
-  } else if (date) {
-    day = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  if (date) {
+    if (typeof date === 'number') {
+      day = Math.min(Math.max(date, 0), 4).toString();
+    } else {
+      day = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    }
   }
 
   return rp(`${taffaBaseURL}/${language ? language : 'sv'}/json/${day}/`)

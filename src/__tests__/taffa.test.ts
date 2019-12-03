@@ -30,7 +30,7 @@ const expectMenuExtra = expect.objectContaining({
 });
 
 test('menu', async () => {
-  for (let i of [undefined, -1, 0, 2, 4, 5]) {
+  for (let i of [undefined, -1, 0, 2, 4, 5, NaN]) {
     expect(await menu(i)).toEqual(expectMenu);
     expect(await menu(i, 'sv')).toEqual(expectMenu);
     expect(await menu(i, 'fi')).toEqual(expectMenu);
