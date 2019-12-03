@@ -3,7 +3,9 @@ With this package you can easily request the menu for Teknologföreningen's rest
 
 ## Usage
 ```ts
-menu(date?: Date | number, language?: "sv" | "fi" | "en"): Promise<ITaffaMenu>
+menu(date?: Date | number, language?: "sv" | "fi" | "en"): Promise<ITaffaMenu>;
 
-week(language?: "sv" | "fi" | "en"): Promise<ITaffaMenu[]>
+week(language?: "sv" | "fi" | "en"): Promise<ITaffaMenu[]>;
+
+menuToString(menu: ITaffaMenu, tagBeforeDate?: stringm tagAfterDate?: string): string;
 ```
