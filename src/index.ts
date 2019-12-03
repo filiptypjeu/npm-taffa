@@ -34,7 +34,7 @@ export const menu = async (date?: Date | number, language?: keyof typeof TaffaLa
   if (typeof date === 'number') {
     day = Math.min(Math.max(date, 0), 4).toString();
   } else if (date) {
-    day = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+    day = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   }
 
   return rp(`${taffaBaseURL}/${language ? language : 'sv'}/json/${day}/`)
