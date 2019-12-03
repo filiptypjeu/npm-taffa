@@ -64,3 +64,35 @@ export const week = async (language?: keyof typeof TaffaLanguageEnum): Promise<I
       return Promise.reject(e);
     });
 };
+
+/**
+ * A pre-made toString function for ITaffaMenu objects.
+ *
+ * @param {ITaffaMenu} m - The menu object that should be made into a string
+ * @param {string} tagBeforeDate - The "tag" to be put before the date, for example <b>
+ * @param {string} tagAfterDate - The "tag" to be put after the date, for example </b>
+ *
+ * @returns The object made into string format.
+ *
+ * @example
+ * ```ts
+ * menuToString(menuObject, "<b>", "</b>:")
+ * ```
+ * The above call will produce the string:
+ * "<b>Weekday DD.MM.YYYY</b>:\n...food..."
+ */
+export const menuToString = (m: ITaffaMenu, tagBeforeDate?: string, tagAfterDate?: string): string => {
+  if (m.extra) {
+    return `${tagBeforeDate ? tagBeforeDate : ''}${m.dayname} ${m.date}${tagAfterDate ? tagAfterDate : ''}\n${m.extra}`;
+  }
+  return [
+    `${tagBeforeDate ? tagBeforeDate : ''}${m.dayname} ${m.date}${tagAfterDate ? tagAfterDate : ''}`,
+    m.main,
+    m.soup,
+    m.salad,
+    m.vegetarian,
+    m.alacarte,
+  ]
+    .filter(s => s)
+    .join('\n');
+};
