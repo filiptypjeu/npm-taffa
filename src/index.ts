@@ -17,7 +17,7 @@ export interface ITaffaMenu {
   alacarte: string;
 }
 
-const taffaBaseURL: string = 'http://api.tf.fi/taffa/';
+const taffaBaseURL: string = 'http://api.tf.fi/taffa';
 
 /**
  * Reqeuests the menu for a specific day.
