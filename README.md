@@ -7,5 +7,5 @@ menu(date?: Date | number, language?: "sv" | "fi" | "en"): Promise<ITaffaMenu>;
 
 week(language?: "sv" | "fi" | "en"): Promise<ITaffaMenu[]>;
 
-menuToString(menu: ITaffaMenu, tagBeforeDate?: stringm tagAfterDate?: string): string;
+menuToString(menu: ITaffaMenu, tagBeforeDate?: string, tagAfterDate?: string): string;
 ```
