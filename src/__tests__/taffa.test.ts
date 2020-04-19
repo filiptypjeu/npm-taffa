@@ -1,4 +1,4 @@
-import { menu, week, menuToString, ITaffaMenu } from '../index';
+import { menu, week, ITaffaMenu } from '../index';
 
 const modMenu = (m: ITaffaMenu): ITaffaMenu => {
   m.main = m.main.split('(')[0].trim();
@@ -47,8 +47,8 @@ test('menu date', async () => {
   ];
 
   menus.forEach(m => {
-    if (m.extra) expect(m).toEqual(expectMenu);
-    else expect(m).toEqual(expectMenuExtra);
+    if (m.extra) expect(m).toEqual(expectMenuExtra);
+    else expect(m).toEqual(expectMenu);
   });
 }, 10000);
 
@@ -96,25 +96,3 @@ test('week en', async () => {
   expect(a).toHaveLength(5);
   expect(a[0]).toEqual(expectMenu);
 }, 10000);
-
-test('menuToString', () => {
-  const m = {
-    salad: 'Trädgårdsmästarens sallad (K, M, G, T, S, A, Veg)',
-    extra: '',
-    vegetarian: 'Grönsaksseljanka (S, A, Veg, K, M, G, T)',
-    dayname: 'Onsdag',
-    soup: 'Spenat-fetasås (K, L, T, A)',
-    alacarte: 'A la Carte: Grillbiff (K, L, G, S)',
-    date: '4.12.2019',
-    main: 'Spaghetti bolognese (K, M, A)',
-    day: 3,
-  };
-
-  const s =
-    '\nSpaghetti bolognese (K, M, A)\nSpenat-fetasås (K, L, T, A)\nTrädgårdsmästarens sallad (K, M, G, T, S, A, Veg)\nGrönsaksseljanka (S, A, Veg, K, M, G, T)\nA la Carte: Grillbiff (K, L, G, S)';
-
-  expect(menuToString(m)).toEqual('Onsdag 4.12.2019' + s);
-  expect(menuToString(m, '<b>')).toEqual('<b>Onsdag 4.12.2019' + s);
-  expect(menuToString(m, undefined, '</b>')).toEqual('Onsdag 4.12.2019</b>' + s);
-  expect(menuToString(m, '<b>', '</b>')).toEqual('<b>Onsdag 4.12.2019</b>' + s);
-});
