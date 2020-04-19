@@ -1,9 +1,9 @@
 import fetch from "node-fetch";
 
 export enum TaffaLanguageEnum {
-  'sv',
-  'fi',
-  'en',
+  "sv",
+  "fi",
+  "en",
 }
 
 export interface ITaffaMenu {
@@ -18,7 +18,7 @@ export interface ITaffaMenu {
   alacarte: string;
 }
 
-const taffaBaseURL: string = 'http://api.tf.fi/taffa';
+const taffaBaseURL: string = "http://api.tf.fi/taffa";
 
 /**
  * Reqeuests the menu for a specific day.
@@ -29,17 +29,17 @@ const taffaBaseURL: string = 'http://api.tf.fi/taffa';
  * @returns {ITaffaMenu} An object containing the different lunch alternatives for the corresponding day. In addition, the object will also contain the date and name of the weekday.
  */
 export const menu = async (date?: Date | number, language?: keyof typeof TaffaLanguageEnum): Promise<ITaffaMenu> => {
-  let day = '0';
+  let day = "0";
 
   if (date) {
-    if (typeof date === 'number') {
+    if (typeof date === "number") {
       day = Math.min(Math.max(date, 0), 4).toString();
     } else {
       day = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     }
   }
 
-  return fetch(`${taffaBaseURL}/${language ? language : 'sv'}/json/${day}/`)
+  return fetch(`${taffaBaseURL}/${language ? language : "sv"}/json/${day}/`)
     .then(res => res.json())
     .catch(e => Promise.reject(e));
 };
@@ -52,7 +52,7 @@ export const menu = async (date?: Date | number, language?: keyof typeof TaffaLa
  * @returns {ITaffaMenu[]} An array with objects containing the different lunch alternatives for today plus four days into the future (not including Saturdays and Sundays). In addition, the objects will also contain the corresponding date.
  */
 export const week = async (language?: keyof typeof TaffaLanguageEnum): Promise<ITaffaMenu[]> => {
-  return fetch(`${taffaBaseURL}/${language ? language : 'sv'}/json/week/`)
+  return fetch(`${taffaBaseURL}/${language ? language : "sv"}/json/week/`)
     .then(res => res.json())
     .catch(e => Promise.reject(e));
 };
