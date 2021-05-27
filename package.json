@@ -1,7 +1,7 @@
 {
   "name": "taffa",
   "version": "2.0.0",
-  "description": "NPM package for using Täffä's (Dagsen's) API.",
+  "description": "NPM package for using Täffä Lunch's (Dagsen's) API.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -22,13 +22,13 @@
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/jest": "^24.9.1",
-    "@types/node-fetch": "^2.5.6",
+    "@types/node-fetch": "^2.5.10",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "ts-jest": "^24.3.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.9"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/filiptypjeu/npm-taffa",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "files": [
     "dist/**/*"
