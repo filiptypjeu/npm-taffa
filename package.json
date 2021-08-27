@@ -5,12 +5,11 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "deploy": "bash deploy.sh",
-    "dev": "nodemon src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/**/* --ext .ts*",
     "lint-fix": "eslint src/**/* --ext .ts --fix",
     "postversion": "git push && git push --tags",
+    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "test": "jest --config jestconfig.json",
@@ -20,7 +19,6 @@
   "license": "ISC",
   "types": "dist/index.d.ts",
   "devDependencies": {
-    "@types/jest": "^26.0.23",
     "@types/node-fetch": "^2.5.10",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
@@ -41,7 +39,7 @@
     "node-fetch": "^2.6.1"
   },
   "files": [
-    "dist/**/*"
+    "dist"
   ],
   "keywords": [
     "täffä",
